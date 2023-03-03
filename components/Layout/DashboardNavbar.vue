@@ -20,17 +20,13 @@
     </div>
 
     <ul class="navbar-nav" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
-      <div class="search-bar input-group" @click="searchModalVisible = true">
-        <button
-          class="btn btn-link"
-          id="search-button"
-          data-toggle="modal"
-          data-target="#searchModal"
-        >
-          <i class="tim-icons icon-zoom-split"></i>
-        </button>
-        <!-- You can choose types of search input -->
-      </div>
+        <div class="input-group">
+        <base-input>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="smart-transport">smart-transport</option>
+            </select>
+        </base-input>
+        </div>
       <modal
         :show.sync="searchModalVisible"
         class="modal-search"
@@ -47,66 +43,6 @@
           placeholder="SEARCH"
         />
       </modal>
-      <base-dropdown
-        tag="li"
-        :menu-on-right="!$rtl.isRTL"
-        title-tag="a"
-        title-classes="nav-link"
-        class="nav-item"
-      >
-        <template
-          slot="title"
-        >
-          <div class="notification d-none d-lg-block d-xl-block"></div>
-          <i class="tim-icons icon-sound-wave"></i>
-          <p class="d-lg-none">New Notifications</p>
-        </template>
-        <li class="nav-link">
-          <a href="#" class="nav-item dropdown-item"
-            >Mike John responded to your email</a
-          >
-        </li>
-        <li class="nav-link">
-          <a href="#" class="nav-item dropdown-item">You have 5 more tasks</a>
-        </li>
-        <li class="nav-link">
-          <a href="#" class="nav-item dropdown-item"
-            >Your friend Michael is in town</a
-          >
-        </li>
-        <li class="nav-link">
-          <a href="#" class="nav-item dropdown-item">Another notification</a>
-        </li>
-        <li class="nav-link">
-          <a href="#" class="nav-item dropdown-item">Another one</a>
-        </li>
-      </base-dropdown>
-      <base-dropdown
-        tag="li"
-        :menu-on-right="!$rtl.isRTL"
-        title-tag="a"
-        class="nav-item"
-        title-classes="nav-link"
-        menu-classes="dropdown-navbar"
-      >
-        <template
-          slot="title"
-        >
-          <div class="photo"><img src="img/mike.jpg" /></div>
-          <b class="caret d-none d-lg-block d-xl-block"></b>
-          <p class="d-lg-none">Log out</p>
-        </template>
-        <li class="nav-link">
-          <a href="#" class="nav-item dropdown-item">Profile</a>
-        </li>
-        <li class="nav-link">
-          <a href="#" class="nav-item dropdown-item">Settings</a>
-        </li>
-        <div class="dropdown-divider"></div>
-        <li class="nav-link">
-          <a href="#" class="nav-item dropdown-item">Log out</a>
-        </li>
-      </base-dropdown>
     </ul>
   </base-nav>
 </template>

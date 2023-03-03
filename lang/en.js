@@ -1,6 +1,6 @@
 module.exports = {
   "sidebar": {
-    "title": "Creative Tim",
+    "title": "Multichain Vue",
     "shortTitle": "CT",
     "dashboard": "Dashboard",
     "pages": "Pages",
@@ -36,6 +36,7 @@ module.exports = {
     "vectorMaps": "Vector Maps",
     "widgets": "Widgets",
     "charts": "Charts",
-    "calendar": "Calendar"
+    "calendar": "Calendar",
+    "streams": "Streams"
   }
 }
