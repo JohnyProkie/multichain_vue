@@ -48,11 +48,10 @@ export default {
     [TableColumn.name]: TableColumn
   },
     async asyncData (context) {
-      console.log(context.route.params.hashedId)
-        let array = context.route.params.hashedId.split('-')
+      console.log(context.route.params)
         await context.store.dispatch('streamItem/getstreamitem', {
-            stream: array[0],
-            txid: array[1]
+            stream: context.route.params.streamName,
+            txid: context.route.params.transactionId
         })
     },
     data() {

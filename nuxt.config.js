@@ -48,6 +48,11 @@ export default {
     },
     router: {
         linkExactActiveClass: "active",
+        extendRoutes(routes, resolve) {
+            const streamItem = resolve(__dirname,'pages/stream/item/_hashedId')
+
+            routes.push({path: '/stream/:streamName/item/:transactionId', component: streamItem})
+        }
     },
     /*
      ** Customize the progress-bar color

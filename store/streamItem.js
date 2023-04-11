@@ -35,7 +35,7 @@ export const actions = {
       }
       commit('set', response.data.result)
     }).catch((response) => {
-      console.error('fetching streams with ID failed!', response)
+      console.error('getstreamitem failed!', response)
     })
   },
 }
