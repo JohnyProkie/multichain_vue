@@ -12,7 +12,7 @@
       data-toggle="collapse"
       @click.prevent="collapseMenu"
     >
-      
+
     </a>
 
     <slot

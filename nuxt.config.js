@@ -84,7 +84,7 @@ export default {
     ],
     axios: {
         // See https://github.com/nuxt-community/axios-module#options
-        baseURL: 'http://localhost:7001', // Used as fallback if no runtime config is provided
+        baseURL: process.env.BLOCKCHAIN_URL, // Used as fallback if no runtime config is provided
         proxy: true,
         headers: {
             'X-Requested-With': 'XMLHttpRequest',

@@ -31,7 +31,7 @@
             >
                 <template slot-scope="{ row }">
                     <div class="btn-group">
-                        <nuxt-link :to="'/stream/'.concat(row.name)" class="btn btn-outline-info">Show</nuxt-link>
+                        <a :href="'/stream/'.concat(row.name)" class="btn btn-outline-info">Show</a>
                     </div>
 
                 </template>
@@ -52,7 +52,7 @@ export default {
     [TableColumn.name]: TableColumn
   },
     async asyncData (context) {
-        await context.store.dispatch('streams/fetchstreams')
+        await context.store.dispatch('streams/liststreams')
     },
     data() {
     return {

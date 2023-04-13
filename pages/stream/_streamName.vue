@@ -59,7 +59,7 @@
                                             {{ JSON.stringify(row.data.json)}}
                                     </div>
                                 </div>
-                                <base-button slot="reference">
+                                <base-button slot="reference" @click="copyToClipboard(row.data.json)">
                                     Data
                                 </base-button>
                             </el-popover>
@@ -73,7 +73,7 @@
                     >
                         <template slot-scope="{ row }">
                             <div class="btn-group">
-                                <nuxt-link :to="'/stream/'.concat($route.params.streamName).concat('/item/').concat(row.txid)" class="btn btn-outline-info">Show</nuxt-link>
+                                <a :href="'/stream/'.concat($route.params.streamName).concat('/item/').concat(row.txid)" class="btn btn-outline-info">Show</a>
                             </div>
 
                         </template>
@@ -118,7 +118,13 @@ export default {
             console.log('submit filter!', event)
             let config = {streamName: this.streamName, key: this.filter.key }
             await this.$store.dispatch('stream/liststreamkeyitems', config)
-
+        },
+        copyToClipboard(text) {
+            navigator.clipboard.writeText(JSON.stringify(text)).then(() => {
+                console.log('Content copied to clipboard');
+            },() => {
+                console.error('Failed to copy');
+            });
         }
     }
 };

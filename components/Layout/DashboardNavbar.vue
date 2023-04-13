@@ -69,6 +69,9 @@ export default {
       return this.$rtl.isRTL;
     }
   },
+    async asyncData(context) {
+        await context.store.dispatch('streams/fetchstreams')
+    },
   data() {
     return {
       activeNotifications: false,

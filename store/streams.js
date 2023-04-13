@@ -13,7 +13,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchstreams({ commit, dispatch }, context) {
+  async liststreams({ commit, dispatch }, context) {
     let stream = {};
     console.log('fetch streams',commit, dispatch, context)
     await this.$axios.post('', {
