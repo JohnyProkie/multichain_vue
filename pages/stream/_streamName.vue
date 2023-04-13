@@ -54,7 +54,7 @@
                             <el-popover trigger="hover"
                                         placement="top">
                                 <div>
-                                    <h3 class="popover-header">Popover on Top</h3>
+                                    <h3 class="popover-header">Click to copy data</h3>
                                     <div class="popover-body">
                                             {{ JSON.stringify(row.data.json)}}
                                     </div>
