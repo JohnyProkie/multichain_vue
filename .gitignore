@@ -3,3 +3,5 @@ node_modules
 .idea
 .env
 static/sw.js
+docker-compose.override.yml
+seed.sh

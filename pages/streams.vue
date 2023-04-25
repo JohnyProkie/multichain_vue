@@ -4,7 +4,7 @@
         <card card-body-classes="table-full-width">
           <template slot="header">
               <h4 slot="header" class="card-title">Streams</h4>
-              <p class="category">Here is a subtitle for this table</p>
+              <p class="category">List of subscribed streams</p>
           </template>
         <el-table :data="tableData"
                   header-cell-class-name="table-transparent"
