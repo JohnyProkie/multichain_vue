@@ -1,10 +1,10 @@
 version: "3.8"
 services:
   multichain_vue:
+    image: johnyprokie/multichain_vue:v0.1
     build:
       context: .
       dockerfile: .docker/Dockerfile
-    image: multichain_vue:v0.1
     entrypoint: .docker/entrypoint.sh
     ports:
       - 3000:3000
