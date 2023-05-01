@@ -7,7 +7,7 @@
                     <p class="category">This is a view of stream data and its details. TODO filter by a key</p>
                     <form @submit.prevent="submitFilter">
                         <div class="form-row">
-                            <base-input class="col-md-6" label="Filter by key" v-model="filter.key"/>
+                            <base-input class="col-md-6" label="Filter by key" v-model="mcFilter.key"/>
                         </div>
                         <base-button type="primary" native-type="Submit">Submit</base-button>
                     </form>
@@ -95,14 +95,19 @@ export default {
     [TableColumn.name]: TableColumn
   },
     async asyncData (context) {
-      console.log(context.route.params.streamName)
+      console.log(context.route.params)
+        const params = context.route.params;
+        if (params.key) {
+            await context.store.dispatch('stream/liststreamkeyitems', {streamName: params.streamName, key: params.key})
+            return;
+        }
         await context.store.dispatch('stream/liststreamitems', context.route.params.streamName)
     },
     data() {
         return {
             tableData: this.$store.state.stream.stream,
-            filter: {
-                key: ''
+            mcFilter: {
+                key: this.$route.params.key ?? ''
             },
             defaultPagination: 1,
             streamName: this.$route.params.streamName
@@ -114,10 +119,10 @@ export default {
           const date = new Date(timestamp)
           return date.toUTCString()
       },
-        async submitFilter(event) {
+        submitFilter(event) {
             console.log('submit filter!', event)
-            let config = {streamName: this.streamName, key: this.filter.key }
-            await this.$store.dispatch('stream/liststreamkeyitems', config)
+            // fixme this doesnt work well, only after refresh
+            this.$router.push("/stream/".concat(this.streamName).concat("/").concat(this.mcFilter.key))
         },
         copyToClipboard(text) {
             navigator.clipboard.writeText(JSON.stringify(text)).then(() => {

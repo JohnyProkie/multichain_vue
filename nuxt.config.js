@@ -50,8 +50,10 @@ export default {
         linkExactActiveClass: "active",
         extendRoutes(routes, resolve) {
             const streamItem = resolve(__dirname,'pages/stream/item/_hashedId')
+            const streamName = resolve(__dirname,'pages/stream/_streamName')
 
             routes.push({path: '/stream/:streamName/item/:transactionId', component: streamItem})
+            routes.push({path: '/stream/:streamName/:key', component: streamName})
         }
     },
     /*
