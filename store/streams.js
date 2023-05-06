@@ -1,5 +1,5 @@
 export const state = () => ({
-  streams: {}
+  streams: []
 })
 
 export const getters = {
@@ -36,7 +36,6 @@ export const actions = {
       commit('set', streams)
     }).catch((response) => {
       console.error('fetching streams with ID failed!', response)
-      throw Error(response.message)
     })
     console.log('after fetch', stream)
 

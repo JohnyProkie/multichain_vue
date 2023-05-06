@@ -24,6 +24,14 @@
           >
           </sidebar-item>
           <sidebar-item
+              :link="{
+            name: $t('sidebar.assets'),
+            icon: 'tim-icons icon-light-3',
+            path: '/assets'
+          }"
+          >
+          </sidebar-item>
+          <sidebar-item
           :link="{
             name: $t('sidebar.icons'),
             icon: 'tim-icons icon-atom',

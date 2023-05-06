@@ -40,7 +40,6 @@ export const actions = {
     })
   },
   async liststreamkeyitems({ commit, dispatch }, {streamName, key}) {
-    console.log('liststreamkeyitems', streamName, key)
     await this.$axios.post('', {
         method: "liststreamkeyitems",
         params: [
